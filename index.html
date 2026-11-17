@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shitaye Daba - Front-End Developer Portfolio. Computer Science student at Wolaita Sodo University.">
+    <meta name="author" content="Shitaye Daba">
+    <title>Shitaye Daba | Front-End Developer</title>
+
+    <!-- Google Fonts: Poppins for Latin, Noto Sans Ethiopic for Amharic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon (inline SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='70' font-size='55' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
+</head>
+<body>
+    ===== Scroll Progress Bar =====
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===== Navigation ===== -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#home" class="nav__logo">
+                <span class="nav__logo-mark">S</span>
+                <span class="nav__logo-text">Shitaye<span>.</span></span>
+            </a>
+
+            <div class="nav__menu" id="navMenu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active" data-i18n="nav.home">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link" data-i18n="nav.services">Services</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+                    <li class="nav__item"><a href="#education" class="nav__link" data-i18n="nav.education">Education</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__actions">
+                <!-- Language selector -->
+                <select class="lang-select" id="langSelect" aria-label="Select language">
+                    <option value="en">English</option>
+                    <option value="am">አማርኛ</option>
+                </select>
+
+                <!-- Theme toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+
+                <!-- Hamburger -->
+                <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== Hero / Home ===== -->
+        <section class="hero section" id="home">
+            <div class="container hero__container">
+                <div class="hero__content" data-animate>
+                    <p class="hero__greeting" data-i18n="hero.greeting">Hi, I'm</p>
+                    <h1 class="hero__name"></h1>
+                    <h2 class="hero__title">
+                        <span data-i18n="hero.title">Front-End Developer</span>
+                        <span class="hero__title-accent"></span>
+                    </h2>
+                    <p class="hero__description" data-i18n="hero.description">I am a third-year Computer Science student at Wolaita Sodo University. I enjoy creating modern, responsive, and user-friendly websites.</p>
+                    <div class="hero__buttons">
+                        <a href="#projects" class="btn btn--primary" data-i18n="hero.viewWork">View My Work</a>
+                        <a href="#contact" class="btn btn--outline" data-i18n="hero.contactMe">Contact Me</a>
+                    </div>
+                    <div class="hero__social">
+                        <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.42.36.79 1.08.79 2.18v3.23c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34v-8.4H5.67v8.4h2.67zM7 8.84a1.55 1.55 0 1 0 0-3.09 1.55 1.55 0 0 0 0 3.09zM18.34 18.34v-4.6c0-2.45-1.31-3.59-3.06-3.59-1.41 0-2.04.78-2.39 1.32v-1.13h-2.67v8.4h2.67v-4.68c0-.25.02-.5.09-.68.2-.5.65-1.02 1.41-1.02.99 0 1.39.76 1.39 1.87v4.85h2.69z"/></svg></a>
+                        <a href="https://t.me/senu12N" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.64 6.8-1.55 7.32c-.12.52-.42.65-.85.4l-2.35-1.73-1.13 1.09c-.25.25-.46.47-.94.47l.34-4.78 6.56-5.93c.29-.26-.06-.4-.44-.15L7.66 13.1l-2.3-.72c-.5-.16-.51-.5.1-.74l9-3.46c.42-.16.78.1.65.62z"/></svg></a>
+                    </div>
+                </div>
+                <div class="hero__image" data-animate>
+                    <div class="hero__image-bg">
+                        <div class="hero__blob"></div>
+                        <div class="hero__avatar">
+                            <img src="images/profile.png" alt="Shitaye Daba" loading="eager">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== About ===== -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <span class="section__tag" data-i18n="about.tag">Get to know me</span>
+                    <h2 class="section__title" data-i18n="about.title">About Me</h2>
+                </div>
+                <div class="about__grid">
+                    <div class="about__image" data-animate>
+                        <div class="about__image-frame">
+                            <img src="images/abotMe.png" alt="Shitaye Daba">
+                        </div>
+                        <div class="about__exp-badge">
+                            <span class="about__exp-num">1+</span>
+                            <span data-i18n="about.yearsText">Years Coding</span>
+                        </div>
+                    </div>
+                    <div class="about__content" data-animate>
+                        <h3 class="about__role" data-i18n="about.role">Front-End Developer & CS Student</h3>
+                        <p class="about__text" data-i18n="about.p1">I am Shitaye Daba, a passionate front-end developer and a third-year Computer Science student at Wolaita Sodo University. I specialize in building clean, responsive, and accessible web interfaces using HTML, CSS, and JavaScript.</p>
+                        <p class="about__text" data-i18n="about.p2">I love turning ideas into real, functional products on the web. I focus on writing clean code, creating intuitive user experiences, and continuously learning new technologies to improve my craft.</p>
+                        <div class="about__info">
+                            <div class="about__info-item">
+                                <span class="about__info-label" data-i18n="about.name">Name</span>
+                                <span class="about__info-value">Shitaye Daba</span>
+                            </div>
+                            <div class="about__info-item">
+                                <span class="about__info-label" data-i18n="about.email">Email</span>
+                                <span class="about__info-value">siifandhaabaa9@gmail.com</span>
+                            </div>
+                            <div class="about__info-item">
+                                <span class="about__info-label" data-i18n="about.location">Location</span>
+                                <span class="about__info-value" data-i18n="about.locationValue">Wolaita Sodo, Ethiopia</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn--primary" data-i18n="about.letsTalk">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Skills ===== -->
+        <section class="skills section" id="skills">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <span class="section__tag" data-i18n="skills.tag">What I know</span>
+                    <h2 class="section__title" data-i18n="skills.title">My Skills</h2>
+                </div>
+                <div class="skills__grid">
+                    <div class="skills__cards" data-animate>
+                        <div class="skill-card">
+                            <div class="skill-card__icon">📱</div>
+                            <h3 class="skill-card__title" data-i18n="skills.responsive">Responsive Design</h3>
+                            <p class="skill-card__text" data-i18n="skills.responsiveText">Mobile-first layouts that look great on any device.</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card__icon">🎨</div>
+                            <h3 class="skill-card__title" data-i18n="skills.uiux">UI / UX Design</h3>
+                            <p class="skill-card__text" data-i18n="skills.uiuxText">Clean interfaces with thoughtful user experiences.</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card__icon">⚡</div>
+                            <h3 class="skill-card__title" data-i18n="skills.performance">Performance</h3>
+                            <p class="skill-card__text" data-i18n="skills.performanceText">Fast-loading, optimized websites and applications.</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card__icon">🔗</div>
+                            <h3 class="skill-card__title" data-i18n="skills.accessibility">Accessibility</h3>
+                            <p class="skill-card__text" data-i18n="skills.accessibilityText">Inclusive websites usable by everyone, everywhere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Services ===== -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <span class="section__tag" data-i18n="services.tag">What I offer</span>
+                    <h2 class="section__title" data-i18n="services.title">My Services</h2>
+                </div>
+                <div class="services__grid">
+                    <div class="service-card" data-animate>
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <h3 class="service-card__title" data-i18n="services.s1.title">Web Design</h3>
+                        <p class="service-card__text" data-i18n="services.s1.text">Creating visually appealing and modern website designs that reflect your brand and engage your audience.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <h3 class="service-card__title" data-i18n="services.s2.title">Front-End Development</h3>
+                        <p class="service-card__text" data-i18n="services.s2.text">Building fast, interactive, and maintainable user interfaces with HTML, CSS, and JavaScript.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <h3 class="service-card__title" data-i18n="services.s3.title">Responsive Design</h3>
+                        <p class="service-card__text" data-i18n="services.s3.text">Ensuring your website looks and works perfectly on mobile phones, tablets, and desktops.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                        </div>
+                        <h3 class="service-card__title" data-i18n="services.s4.title">Website Maintenance</h3>
+                        <p class="service-card__text" data-i18n="services.s4.text">Updating, fixing, and improving existing websites to keep them secure, fast, and up to date.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Projects ===== -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <span class="section__tag" data-i18n="projects.tag">My future projects</span>
+                    <h2 class="section__title" data-i18n="projects.title">My Future Projects</h2>
+                </div>
+                <div class="projects__grid">
+                    <article class="project-card" data-animate>
+                        <div class="project-card__image">
+                            <img src="images/project1.png" alt="Project preview" loading="lazy">
+                            <div class="project-card__overlay">
+                                <a href="#" class="project-card__link" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__tags">
+                                <span>HTML</span><span>CSS</span><span>JS</span>
+                            </div>
+                            <h3 class="project-card__title" data-i18n="projects.p1.title">Agro Market</h3>
+                            <p class="project-card__text" data-i18n="projects.p1.text">The Agro Market Management System is a web-based platform that connects farmers and buyers directly, allowing farmers to list products and customers to browse and purchase them efficiently.</p>
+                        </div>
+                    </article>
+                    <article class="project-card" data-animate>
+                        <div class="project-card__image">
+                            <img src="images/project2.png" alt="Project preview" loading="lazy">
+                            <div class="project-card__overlay">
+                                <a href="#" class="project-card__link" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__tags">
+                                <span>JavaScript</span><span>API</span>
+                            </div>
+                            <h3 class="project-card__title" data-i18n="projects.p2.title">E-Learning Platform</h3>
+                            <p class="project-card__text" data-i18n="projects.p2.text">An online learning platform that offers courses, video lessons, and quizzes, helping students learn at their own pace from anywhere.</p>
+                        </div>
+                    </article>
+                    <article class="project-card" data-animate>
+                        <div class="project-card__image">
+                            <img src="images/image.png" alt="Personal Portfolio preview" loading="lazy">
+                            <div class="project-card__overlay">
+                                <a href="#" class="project-card__link" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__tags">
+                                <span>React</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>Python</span><span>TypeScript</span>
+                            </div>
+                            <h3 class="project-card__title" data-i18n="projects.p3.title">Personal Portfolio</h3>
+                            <p class="project-card__text" data-i18n="projects.p3.text">Personal Portfolio – Shitaye Daba. A modern, responsive portfolio featuring a dark-blue design, glowing effects, technical skills, projects, and contact information.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Education ===== -->
+        <section class="education section" id="education">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <span class="section__tag" data-i18n="education.tag">My background</span>
+                    <h2 class="section__title" data-i18n="education.title">Education</h2>
+                </div>
+                <div class="education__timeline">
+                    <div class="education__item" data-animate>
+                        <div class="education__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <div class="education__content">
+                            <span class="education__date" data-i18n="education.e1.date">2024 — Present</span>
+                            <h3 class="education__degree" data-i18n="education.e1.degree">BSc in Computer Science</h3>
+                            <p class="education__school" data-i18n="education.e1.school">Wolaita Sodo University</p>
+                            <p class="education__detail" data-i18n="education.e1.detail">Currently a third-year student focusing on web development, algorithms, and software engineering principles.</p>
+                        </div>
+                    </div>
+                    <div class="education__item" data-animate>
+                        <div class="education__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <div class="education__content">
+                            <span class="education__date" data-i18n="education.e2.date">2020 — 2022</span>
+                            <h3 class="education__degree" data-i18n="education.e2.degree">High School Certificate</h3>
+                            <p class="education__school" data-i18n="education.e2.school" data-keep>Secondary School</p>
+                            <p class="education__detail" data-i18n="education.e2.detail">Completed secondary education with a focus on natural sciences and mathematics.</p>
+                        </div>
+                    </div>
+                    <div class="education__item" data-animate>
+                        <div class="education__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 6 12 12 16 14"/><circle cx="12" cy="12" r="10"/></svg>
+                        </div>
+                        <div class="education__content">
+                            <span class="education__date" data-i18n="education.e3.date">Ongoing</span>
+                            <h3 class="education__degree" data-i18n="education.e3.degree">Self-Taught Web Development</h3>
+                            <p class="education__school" data-i18n="education.e3.school">Online Courses &amp; Practice</p>
+                            <p class="education__detail" data-i18n="education.e3.detail">Continuously learning through online tutorials, documentation, and building real-world projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact ===== -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <span class="section__tag" data-i18n="contact.tag">Get in touch</span>
+                    <h2 class="section__title" data-i18n="contact.title">Contact Me</h2>
+                </div>
+                <div class="contact__grid">
+                    <div class="contact__info" data-animate>
+                        <h3 class="contact__subtitle" data-i18n="contact.subtitle">Let's create something great together</h3>
+                        <p class="contact__text" data-i18n="contact.text">Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities.</p>
+                        <div class="contact__details">
+                            <a href="mailto:siifandhaabaa9@gmail.com" class="contact__detail-item">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+                                </div>
+                                <div>
+                                    <span class="contact__detail-label" data-i18n="contact.emailLabel">Email</span>
+                                    <span class="contact__detail-value">siifandhaabaa9@gmail.com</span>
+                                </div>
+                            </a>
+                            <div class="contact__detail-item">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <span class="contact__detail-label" data-i18n="contact.locationLabel">Location</span>
+                                    <span class="contact__detail-value" data-i18n="contact.locationValue">Wolaita Sodo, Ethiopia</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact__social">
+                            <h4 class="contact__social-title" data-i18n="contact.followMe">Follow Me</h4>
+                            <div class="contact__social-links">
+                                <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.42.36.79 1.08.79 2.18v3.23c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+                                <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34v-8.4H5.67v8.4h2.67zM7 8.84a1.55 1.55 0 1 0 0-3.09 1.55 1.55 0 0 0 0 3.09zM18.34 18.34v-4.6c0-2.45-1.31-3.59-3.06-3.59-1.41 0-2.04.78-2.39 1.32v-1.13h-2.67v8.4h2.67v-4.68c0-.25.02-.5.09-.68.2-.5.65-1.02 1.41-1.02.99 0 1.39.76 1.39 1.87v4.85h2.69z"/></svg></a>
+                                <a href="https://t.me/senu12N" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.64 6.8-1.55 7.32c-.12.52-.42.65-.85.4l-2.35-1.73-1.13 1.09c-.25.25-.46.47-.94.47l.34-4.78 6.56-5.93c.29-.26-.06-.4-.44-.15L7.66 13.1l-2.3-.72c-.5-.16-.51-.5.1-.74l9-3.46c.42-.16.78.1.65.62z"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact__form" id="contactForm" novalidate data-animate>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" data-i18n-placeholder="contact.namePlaceholder" placeholder="Your Name" required>
+                            <span class="form-error" id="nameError" data-i18n="contact.nameError">Please enter your name</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" data-i18n-placeholder="contact.emailPlaceholder" placeholder="Your Email" required>
+                            <span class="form-error" id="emailError" data-i18n="contact.emailError">Please enter a valid email</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" data-i18n-placeholder="contact.subjectPlaceholder" placeholder="Subject" required>
+                            <span class="form-error" id="subjectError" data-i18n="contact.subjectError">Please enter a subject</span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Your Message" required></textarea>
+                            <span class="form-error" id="messageError" data-i18n="contact.messageError">Please enter your message</span>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--block" data-i18n="contact.send">
+                            Send Message
+                        </button>
+                        <p class="form-success" id="formSuccess" data-i18n="contact.success">Thank you! Your message has been sent successfully.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <a href="#home" class="nav__logo">
+                <span class="nav__logo-mark">S</span>
+                <span class="nav__logo-text">Shitaye<span>.</span></span>
+            </a>
+            <ul class="footer__links">
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <p class="footer__copy">
+                <span data-i18n="footer.madeWith">Made with</span> <span class="footer__heart">♥</span>
+                <span data-i18n="footer.by">by Shitaye Daba</span> &copy; <span id="currentYear"></span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
